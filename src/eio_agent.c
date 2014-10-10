@@ -227,7 +227,7 @@ static void eioAgent(unsigned short tcpServerPort, const char *unixSocketPath)
             /* check for packet received on the server socket */
             if ((connectedServerFd >= 0) && FD_ISSET(connectedServerFd, &readFdSet)) {
                 /* tcp/ip server has something to relay to tio agent */
-                char msgBuff[128];
+                char msgBuff[EIO_BUFFER_SIZE];
                 const int readCount = eioServerSocketReadLine(connectedServerFd, msgBuff,
                                                           sizeof(msgBuff));
                 if (readCount < 0) {
@@ -258,7 +258,7 @@ static void eioAgent(unsigned short tcpServerPort, const char *unixSocketPath)
             /* check for packet received on the tio socket */
             if ((connectedTIOFd >= 0) && FD_ISSET(connectedTIOFd, &readFdSet)) {
                 /* connected tio_agent has something to relay to tcp/ip server port */
-                char msgBuff[128];
+                char msgBuff[EIO_BUFFER_SIZE];
                 const int readCount = eioTioSocketRead(connectedTIOFd, msgBuff,
                                                        sizeof(msgBuff));
                 if (readCount < 0) {
