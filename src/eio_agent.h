@@ -30,7 +30,7 @@ void LogMsg(int level, const char *fmt, ...);
 
 #define EIO_DEFAULT_SERVER_AGENT_PORT 7880
 #define EIO_AGENT_UNIX_SOCKET "/tmp/sioSocket"
-
+#define EIO_VERSION "1.0.1"
 #define EIO_BUFFER_SIZE 2048
 
 #endif  /* EIO_AGENT_H */
